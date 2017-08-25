@@ -5,7 +5,9 @@ defmodule AssessmentServerWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", AssessmentServerWeb do
-    pipe_through :api
-  end
+  forward "/graphiql", Absinthe.Plug.GraphiQL,
+    schema: AssessmentServer.GraphQL.Schema
+
+  forward "/", Absinthe.Plug,
+    schema: AssessmentServer.GraphQL.Schema
 end
