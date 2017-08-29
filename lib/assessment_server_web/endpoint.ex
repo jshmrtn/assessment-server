@@ -20,6 +20,7 @@ defmodule AssessmentServerWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
 
+  plug CORSPlug
 
   plug AssessmentServerWeb.Router
 
